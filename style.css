@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --main-color: #f0f8ff;
+  --border-width: 10px;
+  --circle-color: orange;
+}
+
+body {
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@media screen and (min-width: 769px) {
+  .grid {
+    margin: 0 30%;
+  }
+}
+
+.layout {
+  margin: 0 30px;
+  margin-top: 20%;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cell .circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid var(--circle-color);
+}
+.cell .cross {
+  position: relative;
+  left: -5px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.cell .cross::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 70px;
+  height: 7px;
+  background-color: #f0f8ff;
+  rotate: 45deg;
+}
+.cell .cross::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 70px;
+  height: 7px;
+  background-color: #f0f8ff;
+  rotate: -45deg;
+}
+
+.cell:nth-child(-n + 3) {
+  border-bottom: var(--border-width) solid var(--main-color);
+}
+.cell:nth-child(n + 4):nth-child(-n + 6) {
+  border-bottom: var(--border-width) solid var(--main-color);
+}
+.cell:nth-child(1) {
+  border-right: var(--border-width) solid var(--main-color);
+}
+.cell:nth-child(3) {
+  border-left: var(--border-width) solid var(--main-color);
+}
+.cell:nth-child(4) {
+  border-right: var(--border-width) solid var(--main-color);
+}
+.cell:nth-child(6) {
+  border-left: var(--border-width) solid var(--main-color);
+}
+.cell:nth-child(7) {
+  border-right: var(--border-width) solid var(--main-color);
+}
+.cell:nth-child(9) {
+  border-left: var(--border-width) solid var(--main-color);
+}
